@@ -1,0 +1,22 @@
+Contained in this directory are my simulations and other files for the spring 2018 research I will be conducting for BurstCube. My goal for now (12/2017) is to make the sim file as clean as possible, remember how it works, speed it up, and possibly change how it is executed so that it can quickly adjust and be easy for other people to use. 
+
+
+Contained in this directory is burstsim.ipynb, a function that is used to simulate a GRB of a given strength, x times per sky position, for a designated orientation of burstcube with some background that is also given. 
+
+All of these variables are designated in the function line, which is described in the third cell block as:
+
+mynewsim(NSIDE,samplesize,burst,background,Ndets,tiltA,tiltB,alternating=False)
+
+Where, 
+NSIDE = designated # of pixels for the resulting skymap aka number of independent sky positions
+samplesize = how many times per sky position you want to test
+burst = strength of the burst in counts
+background = background in each detector in counts
+Ndets = # of detectors for this instrument (currently only works for four)
+tiltA = tilt (from horizon) of the odd numbered detectors 
+tiltB = tilt of the even numbered detectors (only matters what this value is set to if alternating is True)
+alternating = desired preference on whether or not the four detectors of BurstCube are in an alternating tilt. 
+
+
+By running this function with the designated parameters, the program will tell you where on the sky it is sampling, the average location uncertainty at that position, whether it is actually able to do it or not, and eventually produces a skymap that shows how well it worked over the entire sky. 
+
